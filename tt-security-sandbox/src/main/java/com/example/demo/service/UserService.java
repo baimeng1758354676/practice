@@ -1,9 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.User;
-import com.example.demo.domain.UserDo;
-import com.example.demo.domain.UserVo;
-import com.example.demo.dto.UserDto;
 
 public interface UserService {
     /**
@@ -22,8 +19,15 @@ public interface UserService {
 
     /**
      * 登录
-     * @param userVo
+     * @param user
      * @return
      */
-    User login(UserVo userVo);
+    User login(User user);
+
+    /**
+     * 配置密码策略
+     * @param user
+     * @return
+     */
+    User configureStrategy(User user);
 }

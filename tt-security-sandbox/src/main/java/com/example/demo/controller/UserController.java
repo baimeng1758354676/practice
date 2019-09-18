@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.User;
-import com.example.demo.domain.UserDo;
-import com.example.demo.domain.UserVo;
-import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +13,7 @@ public class UserController {
 
     /**
      * 用户名校验
+     *
      * @param name
      * @return
      */
@@ -26,6 +24,7 @@ public class UserController {
 
     /**
      * 注册
+     *
      * @param user
      * @return
      */
@@ -38,12 +37,24 @@ public class UserController {
 
     /**
      * 登录
-     * @param userVo
+     *
+     * @param user
      * @return
      */
     @PostMapping(value = "/login")
-    public User login(@RequestBody UserVo userVo) {
-        return userService.login(userVo);
+    public User login(@RequestBody User user) {
+        return userService.login(user);
     }
+
+    /**
+     * 配置密码策略
+     * @param user
+     * @return
+     */
+    public User configureStrategy(@RequestBody User user) {
+        return userService.configureStrategy(user);
+    }
+
+
 
 }

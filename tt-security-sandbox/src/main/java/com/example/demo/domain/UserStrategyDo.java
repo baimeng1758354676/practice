@@ -17,6 +17,14 @@ import java.io.Serializable;
 
 @Entity(name = "user_strategy")
 public class UserStrategyDo implements Serializable {
+    public UserStrategyDo() {
+    }
+
+    public UserStrategyDo(Integer strategyId, Integer userId) {
+        this.strategyId = strategyId;
+        this.userId = userId;
+    }
+
     @Id
     @GeneratedValue
     private Integer id;
