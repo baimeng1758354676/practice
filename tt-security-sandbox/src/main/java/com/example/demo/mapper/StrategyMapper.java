@@ -1,7 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.domain.Strategy;
-import com.example.demo.domain.StrategyDo;
+import com.example.demo.domain.dataobject.StrategyDo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

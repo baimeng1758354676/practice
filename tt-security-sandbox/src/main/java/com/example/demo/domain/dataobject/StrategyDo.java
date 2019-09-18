@@ -1,13 +1,33 @@
-package com.example.demo.domain;
+package com.example.demo.domain.dataobject;
+//-------------------------hello
 
-import javax.persistence.Column;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * @author baimeng
+ * Create Table
+ * <p>
+ * CREATE TABLE `strategy` (
+ * `id` int(11) NOT NULL AUTO_INCREMENT,
+ * `strategy_id` varchar(128) NOT NULL,
+ * `strategy_name` varchar(128) NOT NULL,
+ * `strategy_state` int(11) NOT NULL COMMENT '策略状态  1 启用 0 禁用',
+ * `strategy_createtime` timestamp NULL DEFAULT NULL,
+ * PRIMARY KEY (`id`),
+ * KEY `idx_strategy_name` (`strategy_name`) USING HASH,
+ * KEY `idx_strategy_id` (`strategy_id`) USING HASH
+ * ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8
  */
-public class Strategy {
+@Entity(name = "strategy")
+public class StrategyDo implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue
     private Integer id;
 
     @Column(name = "strategy_id")
@@ -22,14 +42,9 @@ public class Strategy {
     @Column(name = "strategy_createtime")
     private LocalDateTime strategyCreatetime;
 
-    private List<Rule> rules;
 
-    public List<Rule> getRules() {
-        return rules;
-    }
-
-    public void setRules(List<Rule> rules) {
-        this.rules = rules;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public Integer getId() {
@@ -71,5 +86,4 @@ public class Strategy {
     public void setStrategyCreatetime(LocalDateTime strategyCreatetime) {
         this.strategyCreatetime = strategyCreatetime;
     }
-
 }

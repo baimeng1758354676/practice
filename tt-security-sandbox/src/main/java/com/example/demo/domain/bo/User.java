@@ -1,4 +1,7 @@
-package com.example.demo.domain;
+package com.example.demo.domain.bo;
+
+import com.example.demo.domain.bo.Password;
+import com.example.demo.domain.bo.Strategy;
 
 import javax.persistence.Column;
 import java.io.Serializable;

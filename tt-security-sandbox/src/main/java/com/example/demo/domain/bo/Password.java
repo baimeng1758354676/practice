@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.domain.bo;
 
 import javax.persistence.Column;
 import java.io.Serializable;

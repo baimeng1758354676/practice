@@ -1,21 +1,16 @@
-package com.example.demo.domain;
+package com.example.demo.domain.bo;
 
 import javax.persistence.Column;
+import java.io.Serializable;
 
-public class StrategyRule  {
-    public StrategyRule(Integer ruleId, Integer strategyId) {
-        this.ruleId = ruleId;
-        this.strategyId = strategyId;
-    }
-
+public class UserStrategy implements Serializable {
     private Integer id;
-
-    @Column(name = "rule_id")
-    private Integer ruleId;
-
 
     @Column(name = "strategy_id")
     private Integer strategyId;
+
+    @Column(name = "user_id")
+    private Integer userId;
 
     public Integer getId() {
         return id;
@@ -25,19 +20,19 @@ public class StrategyRule  {
         this.id = id;
     }
 
-    public Integer getRuleId() {
-        return ruleId;
-    }
-
-    public void setRuleId(Integer ruleId) {
-        this.ruleId = ruleId;
-    }
-
     public Integer getStrategyId() {
         return strategyId;
     }
 
     public void setStrategyId(Integer strategyId) {
         this.strategyId = strategyId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

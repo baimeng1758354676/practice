@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.Strategy;
-import com.example.demo.domain.StrategyDo;
+import com.example.demo.domain.bo.Strategy;
 import org.springframework.data.domain.Page;
 
 public interface StrategyService {

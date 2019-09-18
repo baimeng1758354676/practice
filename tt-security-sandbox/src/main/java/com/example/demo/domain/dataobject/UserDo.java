@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.domain.dataobject;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,24 +7,22 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- *
- Create Table
-
- CREATE TABLE `user` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `username` varchar(255) DEFAULT NULL,
- `password` varchar(255) DEFAULT NULL,
- `name` varchar(255) DEFAULT NULL,
- `english_name` varchar(255) DEFAULT NULL,
- `sex` varchar(255) DEFAULT NULL,
- `phone` varchar(255) DEFAULT NULL,
- `status` int(11) DEFAULT '1' COMMENT '是否被禁用（0为禁用，1为开启）',
- `email` varchar(255) DEFAULT NULL,
- `user_number` varchar(255) DEFAULT NULL,
- `login_count` int(255) DEFAULT '0' COMMENT '登录次数',
- PRIMARY KEY (`id`)
- ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
-
+ * Create Table
+ * <p>
+ * CREATE TABLE `user` (
+ * `id` int(11) NOT NULL AUTO_INCREMENT,
+ * `username` varchar(255) DEFAULT NULL,
+ * `password` varchar(255) DEFAULT NULL,
+ * `name` varchar(255) DEFAULT NULL,
+ * `english_name` varchar(255) DEFAULT NULL,
+ * `sex` varchar(255) DEFAULT NULL,
+ * `phone` varchar(255) DEFAULT NULL,
+ * `status` int(11) DEFAULT '1' COMMENT '是否被禁用（0为禁用，1为开启）',
+ * `email` varchar(255) DEFAULT NULL,
+ * `user_number` varchar(255) DEFAULT NULL,
+ * `login_count` int(255) DEFAULT '0' COMMENT '登录次数',
+ * PRIMARY KEY (`id`)
+ * ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
  */
 
 @Entity(name = "user")

@@ -50,7 +50,7 @@ public class JuheDemo {
 
 
     public static void main(String[] args) throws IOException {
-        List<String> strings =  FileUtils.readLines(new File("C:/Users/86132/Desktop/allResult.txt"), "utf-8");
+        List<String> strings = FileUtils.readLines(new File("C:/Users/86132/Desktop/allResult.txt"), "utf-8");
         Map<String, List<String>> collect = strings.stream().collect(Collectors.groupingBy(t -> t.split("\\.")[1]));
 //        List<String> collect = strings.stream().map(s -> mobileQuery(s)).collect(Collectors.toList());
 

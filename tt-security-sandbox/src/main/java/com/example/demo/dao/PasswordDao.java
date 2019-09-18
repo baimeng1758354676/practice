@@ -1,7 +1,6 @@
 package com.example.demo.dao;
 
-import com.example.demo.domain.Password;
-import com.example.demo.domain.PasswordDo;
+import com.example.demo.domain.bo.Password;
 
 import java.util.List;
 
@@ -11,6 +10,7 @@ import java.util.List;
 public interface PasswordDao {
     /**
      * 查询用户对应的密码集合
+     *
      * @param id 用户主键
      * @return
      */
@@ -18,6 +18,7 @@ public interface PasswordDao {
 
     /**
      * 新增密码
+     *
      * @param password
      * @return
      */

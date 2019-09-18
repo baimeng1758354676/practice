@@ -1,7 +1,7 @@
 package com.example.demo.service.Impl;
 
 import com.example.demo.dao.StrategyDao;
-import com.example.demo.domain.Strategy;
+import com.example.demo.domain.bo.Strategy;
 import com.example.demo.mapper.StrategyMapper;
 import com.example.demo.service.StrategyService;
 import com.example.demo.util.Constant;
@@ -21,10 +21,9 @@ public class StrategyServiceImpl implements StrategyService {
     StrategyDao strategyDao;
 
 
-
-
     /**
      * 密码策略分页
+     *
      * @param pageSize
      * @param pageNum
      * @return

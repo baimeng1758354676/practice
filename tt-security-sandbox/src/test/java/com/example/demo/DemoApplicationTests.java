@@ -1,7 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.mapper.StrategyMapper;
-import com.example.demo.domain.StrategyDo;
+import com.example.demo.domain.dataobject.StrategyDo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

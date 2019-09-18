@@ -1,8 +1,7 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.domain.Strategy;
-import com.example.demo.domain.UserStrategy;
+import com.example.demo.domain.bo.Strategy;
 import com.example.demo.service.StrategyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,7 +13,6 @@ public class StrategyController {
 
     @Autowired
     StrategyService strategyService;
-
 
 
     @GetMapping(value = "/checkStrategyName")
@@ -59,7 +57,6 @@ public class StrategyController {
     public Page<Strategy> pageStrategy(int pageSize, int pageNum) {
         return strategyService.pageStrategy(pageSize, pageNum);
     }
-
 
 
 }

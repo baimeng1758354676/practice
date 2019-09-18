@@ -1,10 +1,8 @@
 package com.example.demo.dao.impl;
 
 import com.example.demo.dao.RuleDao;
-import com.example.demo.domain.Rule;
-import com.example.demo.domain.RuleDo;
-import com.example.demo.domain.StrategyRuleDo;
-import com.example.demo.mapper.RuleMapper;
+import com.example.demo.domain.bo.RuleInstance;
+import com.example.demo.domain.dataobject.StrategyRuleDo;
 import com.example.demo.mapper.StrategyRuleMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,27 +18,25 @@ public class RuleDaoImpl implements RuleDao {
     StrategyRuleMapper strategyRuleMapper;
 
 
-    @Autowired
-    RuleMapper ruleMapper;
-
     @Override
-    public List<Rule> findByStrategyId(Integer id) {
+    public List<RuleInstance> findByStrategyId(Integer id) {
         List<StrategyRuleDo> strategyRuleDos = strategyRuleMapper.findAllByStrategyId(id);
-        ArrayList<Rule> rules = new ArrayList<>();
-        for (StrategyRuleDo strategyRuleDo : strategyRuleDos) {
-            Rule rule = new Rule();
-            BeanUtils.copyProperties(ruleMapper.findFirstById(strategyRuleDo.getRuleId()), rule);
-            rules.add(rule);
-        }
-        return rules;
+        ArrayList<RuleInstance> ruleInstances = new ArrayList<>();
+        strategyRuleDos.parallelStream().forEach(strategyRuleDo -> {
+            RuleInstance ruleInstance = new RuleInstance();
+            BeanUtils.copyProperties(strategyRuleDo, ruleInstance);
+            ruleInstances.add(ruleInstance);
+        });
+
+        return ruleInstances;
     }
 
     @Override
-    public Rule saveRule(Rule rule) {
-        RuleDo ruleDo = new RuleDo();
-        BeanUtils.copyProperties(rule,ruleDo);
-        RuleDo save = ruleMapper.save(ruleDo);
-        BeanUtils.copyProperties(save,rule);
-        return rule;
+    public RuleInstance saveRule(RuleInstance ruleInstance) {
+        StrategyRuleDo strategyRuleDo = new StrategyRuleDo();
+        BeanUtils.copyProperties(ruleInstance, strategyRuleDo);
+        strategyRuleMapper.save(strategyRuleDo);
+        BeanUtils.copyProperties(strategyRuleDo, ruleInstance);
+        return ruleInstance;
     }
 }

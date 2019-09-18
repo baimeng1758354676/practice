@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.domain.dataobject;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,14 +9,14 @@ import java.util.Date;
 
 /**
  * CREATE TABLE `user_password` (
- *   `id` int(10) NOT NULL AUTO_INCREMENT,
- *   `user_id` int(10) NOT NULL,
- *   `password` varchar(255) NOT NULL,
- *   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
- *   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
- *   `created_by` varchar(255) NOT NULL,
- *   `updated_by` varchar(255) NOT NULL,
- *   PRIMARY KEY (`id`)
+ * `id` int(10) NOT NULL AUTO_INCREMENT,
+ * `user_id` int(10) NOT NULL,
+ * `password` varchar(255) NOT NULL,
+ * `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ * `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ * `created_by` varchar(255) NOT NULL,
+ * `updated_by` varchar(255) NOT NULL,
+ * PRIMARY KEY (`id`)
  * ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4
  */
 

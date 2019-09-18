@@ -3,21 +3,23 @@ package com.example.demo.dao.impl;
 import com.example.demo.dao.PasswordDao;
 import com.example.demo.dao.StrategyDao;
 import com.example.demo.dao.UserDao;
-import com.example.demo.domain.*;
+import com.example.demo.domain.bo.Password;
+import com.example.demo.domain.bo.Strategy;
+import com.example.demo.domain.bo.User;
+import com.example.demo.domain.dataobject.UserDo;
+import com.example.demo.domain.dataobject.UserStrategyDo;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.mapper.UserStrategyMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UserDaoImpl implements UserDao {
@@ -42,31 +44,31 @@ public class UserDaoImpl implements UserDao {
         User user = new User();
         user.setStrategies(strategies);
         user.setPasswords(passwords);
-        BeanUtils.copyProperties(userDo,user);
+        BeanUtils.copyProperties(userDo, user);
         return user;
     }
 
     @Override
     public User findByUserName(String userName) {
-       return findById(userMapper.findFirstByUserName(userName).getId());
+        return findById(userMapper.findFirstByUserName(userName).getId());
     }
 
     @Override
     public User save(User user) {
         //修改基本信息
         UserDo userDo = new UserDo();
-        BeanUtils.copyProperties(user,userDo);
+        BeanUtils.copyProperties(user, userDo);
         userMapper.save(userDo);
         BeanUtils.copyProperties(userDo, user);
         //修改/配置用户对应的策略
         if (!ObjectUtils.isEmpty(user.getStrategies())) {
             List<Strategy> strategies = user.getStrategies();
             strategies.parallelStream().forEach(strategy -> strategyDao.saveStrategy(strategy));
-            strategies.parallelStream().forEach(strategy -> userStrategyMapper.save(new UserStrategyDo(strategy.getId(),user.getId())));
+            strategies.parallelStream().forEach(strategy -> userStrategyMapper.save(new UserStrategyDo(strategy.getId(), user.getId())));
         }
         //修改用户对应的密码
         if (!ObjectUtils.isEmpty(user.getPasswords())) {
-           user.getPasswords().parallelStream().forEach(password -> passwordDao.savePassword(password));
+            user.getPasswords().parallelStream().forEach(password -> passwordDao.savePassword(password));
         }
         return findById(user.getId());
     }

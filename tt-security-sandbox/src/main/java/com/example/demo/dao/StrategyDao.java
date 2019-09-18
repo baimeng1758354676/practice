@@ -1,6 +1,6 @@
 package com.example.demo.dao;
 
-import com.example.demo.domain.Strategy;
+import com.example.demo.domain.bo.Strategy;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -18,6 +18,7 @@ public interface StrategyDao {
 
     /**
      * 查询用户对应的策略集合
+     *
      * @param id 用户主键
      * @return
      */
@@ -25,6 +26,7 @@ public interface StrategyDao {
 
     /**
      * 新增策略
+     *
      * @param strategy
      * @return
      */

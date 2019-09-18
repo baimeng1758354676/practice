@@ -3,7 +3,7 @@ package com.example.demo.util;
 import java.util.Random;
 
 public class RandomUtil {
-    public static String getRandom(int length){
+    public static String getRandom(int length) {
 
         StringBuilder val = new StringBuilder();
 

@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.domain.dataobject;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,10 +8,10 @@ import java.io.Serializable;
 
 /**
  * CREATE TABLE `user_strategy` (
- *   `id` int(10) NOT NULL,
- *   `strategy_id` int(10) NOT NULL,
- *   `user_id` int(10) NOT NULL,
- *   PRIMARY KEY (`id`)
+ * `id` int(10) NOT NULL,
+ * `strategy_id` int(10) NOT NULL,
+ * `user_id` int(10) NOT NULL,
+ * PRIMARY KEY (`id`)
  * ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb
  */
 

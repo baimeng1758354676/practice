@@ -1,13 +1,21 @@
-package com.example.demo.domain;
+package com.example.demo.domain.bo;
 
 import javax.persistence.Column;
-import java.io.Serializable;
 
-public class Rule implements Serializable {
+/**
+ * 规则实体类
+ */
+public class RuleInstance {
+
+
     private Integer id;
 
     @Column(name = "rule_name")
     private String ruleName;
+
+
+    @Column(name = "strategy_id")
+    private Integer strategyId;
 
     @Column(name = "rule_status")
     private Integer ruleStatus;
@@ -19,22 +27,6 @@ public class Rule implements Serializable {
 
     @Column(name = "rule_force")
     private Integer ruleForce;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getRuleName() {
-        return ruleName;
-    }
-
-    public void setRuleName(String ruleName) {
-        this.ruleName = ruleName;
-    }
 
     public Integer getRuleStatus() {
         return ruleStatus;
@@ -58,5 +50,29 @@ public class Rule implements Serializable {
 
     public void setRuleForce(Integer ruleForce) {
         this.ruleForce = ruleForce;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRuleName() {
+        return ruleName;
+    }
+
+    public void setRuleName(String ruleName) {
+        this.ruleName = ruleName;
+    }
+
+    public Integer getStrategyId() {
+        return strategyId;
+    }
+
+    public void setStrategyId(Integer strategyId) {
+        this.strategyId = strategyId;
     }
 }

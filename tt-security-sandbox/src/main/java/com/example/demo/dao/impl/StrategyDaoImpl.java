@@ -2,7 +2,11 @@ package com.example.demo.dao.impl;
 
 import com.example.demo.dao.RuleDao;
 import com.example.demo.dao.StrategyDao;
-import com.example.demo.domain.*;
+import com.example.demo.domain.bo.Rule;
+import com.example.demo.domain.bo.Strategy;
+import com.example.demo.domain.dataobject.StrategyDo;
+import com.example.demo.domain.dataobject.StrategyRuleDo;
+import com.example.demo.domain.dataobject.UserStrategyDo;
 import com.example.demo.mapper.StrategyMapper;
 import com.example.demo.mapper.StrategyRuleMapper;
 import com.example.demo.mapper.UserStrategyMapper;
@@ -40,13 +44,13 @@ public class StrategyDaoImpl implements StrategyDao {
         Strategy strategy = new Strategy();
         strategy.setRules(rules);
         StrategyDo strategyDo = strategyMapper.findFirstById(id);
-        BeanUtils.copyProperties(strategyDo,strategy);
+        BeanUtils.copyProperties(strategyDo, strategy);
         return strategy;
     }
 
     @Override
     public Strategy findByName(String name) {
-       return findById(strategyMapper.findFirstByStrategyName(name).getId());
+        return findById(strategyMapper.findFirstByStrategyName(name).getId());
     }
 
     @Override
@@ -68,13 +72,13 @@ public class StrategyDaoImpl implements StrategyDao {
     @Override
     public Strategy saveStrategy(Strategy strategy) {
         StrategyDo strategyDo = new StrategyDo();
-        BeanUtils.copyProperties(strategy,strategyDo);
+        BeanUtils.copyProperties(strategy, strategyDo);
         StrategyDo save = strategyMapper.save(strategyDo);
-        BeanUtils.copyProperties(save,strategy);
+        BeanUtils.copyProperties(save, strategy);
         //传过来的规则
         List<Rule> rules = strategy.getRules();
         //返回的规则
-        rules.parallelStream().map(rule -> ruleDao.saveRule(rule)).forEach(t->{
+        rules.parallelStream().map(rule -> ruleDao.saveRule(rule)).forEach(t -> {
             StrategyRuleDo strategyRuleDo = new StrategyRuleDo();
             strategyRuleDo.setRuleId(t.getId());
             strategyRuleDo.setStrategyId(strategyDo.getId());
