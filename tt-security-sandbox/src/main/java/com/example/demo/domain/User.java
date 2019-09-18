@@ -29,8 +29,8 @@ public class User implements Serializable {
 
     @Column(name = "user_number")
     private String userNumber;
-    @Column(name = "login_count")
-    private Integer loginCount;
+    @Column(name = "login_sign")
+    private Integer loginSign;
 
     private List<Strategy> strategies;
 
@@ -124,12 +124,12 @@ public class User implements Serializable {
         this.userNumber = userNumber;
     }
 
-    public Integer getLoginCount() {
-        return loginCount;
+    public Integer getLoginSign() {
+        return loginSign;
     }
 
-    public void setLoginCount(Integer loginCount) {
-        this.loginCount = loginCount;
+    public void setLoginSign(Integer loginSign) {
+        this.loginSign = loginSign;
     }
 
     public List<Strategy> getStrategies() {
