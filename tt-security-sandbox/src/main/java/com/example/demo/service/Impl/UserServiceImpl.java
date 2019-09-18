@@ -77,6 +77,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<User> pageUser(Integer pageNum, Integer pageSize) {
-        return null;
+        return userDao.pageUser(pageNum,pageSize);
+    }
+
+    @Override
+    public User deleteUser(User user) {
+        return userDao.save(user);
     }
 }

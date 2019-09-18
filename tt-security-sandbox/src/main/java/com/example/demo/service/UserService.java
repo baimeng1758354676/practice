@@ -56,4 +56,11 @@ public interface UserService {
      * @return
      */
     Page<User> pageUser(Integer pageNum, Integer pageSize);
+
+    /**
+     * 删除用户
+     * @param user
+     * @return
+     */
+    User deleteUser(User user);
 }

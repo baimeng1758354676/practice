@@ -60,6 +60,15 @@ public class UserController {
     }
 
     /**
+     * 删除用户（逻辑删除，更新账号状态）
+     * @param user
+     * @return
+     */
+    public User deleteUser(@RequestBody User user) {
+        return userService.deleteUser(user);
+    }
+
+    /**
      * 配置密码策略
      * @param user
      * @return
