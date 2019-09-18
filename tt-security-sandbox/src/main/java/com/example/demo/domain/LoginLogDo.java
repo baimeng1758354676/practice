@@ -1,20 +1,19 @@
 package com.example.demo.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class LoginLog implements Serializable {
-    public LoginLog() {
-    }
-
-    public LoginLog( Integer userId, LocalDateTime loginTime, String loginPlace) {
-
-        this.userId = userId;
-        this.loginTime = loginTime;
-        this.loginPlace = loginPlace;
-    }
-
+/**
+ * @author baimeng
+ */
+@Entity(name = "login_log")
+public class LoginLogDo implements Serializable {
+    @Id
+    @GeneratedValue
     private Integer id;
 
     @Column(name = "user_id")

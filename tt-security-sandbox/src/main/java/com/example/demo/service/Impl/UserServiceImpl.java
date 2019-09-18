@@ -1,8 +1,8 @@
 package com.example.demo.service.Impl;
 
+import com.example.demo.dao.LoginLogDao;
 import com.example.demo.dao.StrategyDao;
 import com.example.demo.dao.UserDao;
-import com.example.demo.mapper.*;
 import com.example.demo.domain.*;
 import com.example.demo.service.UserService;
 import com.example.demo.util.Constant;
@@ -10,32 +10,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserMapper userMapper;
-
-    @Autowired
-    UserStrategyMapper userStrategyMapper;
-
-    @Autowired
-    StrategyMapper strategyMapper;
-
-    @Autowired
-    StrategyRuleMapper strategyRuleMapper;
-
-    @Autowired
-    RuleMapper ruleMapper;
-
-    @Autowired
     UserDao userDao;
 
     @Autowired
     StrategyDao strategyDao;
+
+    @Autowired
+    LoginLogDao loginLogDao;
+
 
     @Override
     public User checkUserName(String name) {
@@ -55,7 +46,15 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         User userInfo = userDao.findByUserName(user.getUserName());
         if (!ObjectUtils.isEmpty(userInfo)) {
-            return userInfo.getPassword().equals(user.getPassword()) ? userInfo : null;
+            if (userInfo.getPassword().equals(user.getPassword())) {
+                //登录成功，新增登录日志
+                LoginLog loginLog = new LoginLog();
+                loginLog.setUserId(userInfo.getId());
+                loginLog.setLoginTime(LocalDateTime.now());
+//                loginLog.setLoginPlace();
+                loginLogDao.save(loginLog);
+                return userInfo;
+            }
         }
         return null;
     }
@@ -63,5 +62,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User configureStrategy(User user) {
         return userDao.save(user);
+    }
+
+    @Override
+    public List<LoginLog> findLoginLogByUserId(User user) {
+        return loginLogDao.findByUserId(user.getId());
     }
 }

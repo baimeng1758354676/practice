@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.LoginLog;
 import com.example.demo.domain.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -53,6 +56,15 @@ public class UserController {
      */
     public User configureStrategy(@RequestBody User user) {
         return userService.configureStrategy(user);
+    }
+
+    /**
+     * 查询登录日志
+     * @param user
+     * @return
+     */
+    public List<LoginLog> findLoginLogByUserId(@RequestBody User user) {
+        return userService.findLoginLogByUserId(user);
     }
 
 
