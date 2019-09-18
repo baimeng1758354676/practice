@@ -63,4 +63,18 @@ public interface UserService {
      * @return
      */
     User deleteUser(User user);
+
+    /**
+     * 批量删除用户
+     * @param users
+     * @return
+     */
+    List<User> batchDeleteUser(List<User> users);
+
+    /**
+     * 批量配置密码策略
+     * @param users
+     * @return
+     */
+    List<User> batchConfigureStrategy(List<User> users);
 }

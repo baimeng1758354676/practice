@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,5 +84,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public User deleteUser(User user) {
         return userDao.save(user);
+    }
+
+    @Override
+    public List<User> batchDeleteUser(List<User> users) {
+        ArrayList<User> userList = new ArrayList<>();
+        users.parallelStream().forEach(user -> {
+            userList.add(deleteUser(user));
+        });
+        return userList;
+    }
+
+    @Override
+    public List<User> batchConfigureStrategy(List<User> users) {
+        ArrayList<User> userList = new ArrayList<>();
+        users.parallelStream().forEach(user -> {
+            userList.add(configureStrategy(user));
+        });
+        return null;
     }
 }

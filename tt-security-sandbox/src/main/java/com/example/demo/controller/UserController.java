@@ -64,8 +64,19 @@ public class UserController {
      * @param user
      * @return
      */
-    public User deleteUser(@RequestBody User user) {
+    @PostMapping(value = "/deleteUser")
+    public User c(@RequestBody User user) {
         return userService.deleteUser(user);
+    }
+
+    /**
+     * 批量删除用户
+     * @param users
+     * @return
+     */
+    @PostMapping(value = "/batchDeleteUser")
+    public List<User> batchDeleteUser(@RequestBody List<User> users) {
+        return userService.batchDeleteUser(users);
     }
 
     /**
@@ -77,6 +88,17 @@ public class UserController {
     public User configureStrategy(@RequestBody User user) {
         return userService.configureStrategy(user);
     }
+
+    /**
+     * 批量配置密码策略
+     * @param users
+     * @return
+     */
+    @PostMapping(value = "/batchConfigureStrategy")
+    public List<User> batchConfigureStrategy(@RequestBody List<User> users) {
+        return userService.batchConfigureStrategy(users);
+    }
+
 
     /**
      * 查询登录日志
@@ -100,7 +122,4 @@ public class UserController {
                                @RequestParam(value = "pageSize") Integer pageSize) {
         return userService.pageUser(pageNum, pageSize);
     }
-
-
-
 }
