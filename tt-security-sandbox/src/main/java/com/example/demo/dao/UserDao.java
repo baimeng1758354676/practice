@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.domain.User;
+import org.springframework.data.domain.Page;
 
 /**
  * @author baimeng
@@ -26,4 +27,12 @@ public interface UserDao {
      * @return
      */
     User save(User user);
+
+    /**
+     * 用户分页
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    Page<User> pageUser(Integer pageNum, Integer pageSize);
 }

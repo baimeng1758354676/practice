@@ -7,6 +7,7 @@ import com.example.demo.domain.*;
 import com.example.demo.service.UserService;
 import com.example.demo.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -67,5 +68,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<LoginLog> findLoginLogByUserId(User user) {
         return loginLogDao.findByUserId(user.getId());
+    }
+
+    @Override
+    public User signNextChangePassword(User user) {
+        return userDao.save(user);
+    }
+
+    @Override
+    public Page<User> pageUser(Integer pageNum, Integer pageSize) {
+        return null;
     }
 }

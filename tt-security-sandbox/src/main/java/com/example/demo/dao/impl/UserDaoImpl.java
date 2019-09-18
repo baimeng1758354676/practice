@@ -8,9 +8,14 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.mapper.UserStrategyMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -63,6 +68,18 @@ public class UserDaoImpl implements UserDao {
         if (!ObjectUtils.isEmpty(user.getPasswords())) {
            user.getPasswords().parallelStream().forEach(password -> passwordDao.savePassword(password));
         }
-        return user;
+        return findById(user.getId());
+    }
+
+    @Override
+    public Page<User> pageUser(Integer pageNum, Integer pageSize) {
+        Page<UserDo> userDoPage = userMapper.pageUser(pageNum, pageSize);
+        List<UserDo> userDos = userDoPage.getContent();
+        ArrayList<User> users = new ArrayList<>();
+        userDos.parallelStream().forEach(userDo -> {
+            User user = findById(userDo.getId());
+            users.add(user);
+        });
+        return new PageImpl<>(users, new QPageRequest(pageNum, pageSize), userDoPage.getTotalElements());
     }
 }

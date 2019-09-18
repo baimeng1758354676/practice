@@ -4,6 +4,7 @@ import com.example.demo.domain.LoginLog;
 import com.example.demo.domain.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,10 +51,20 @@ public class UserController {
     }
 
     /**
+     * 标记下次修改密码
+     * @param user
+     * @return
+     */
+    public User signNextChangePassword(@RequestBody User user) {
+        return userService.signNextChangePassword(user);
+    }
+
+    /**
      * 配置密码策略
      * @param user
      * @return
      */
+    @PostMapping(value = "/configureStrategy")
     public User configureStrategy(@RequestBody User user) {
         return userService.configureStrategy(user);
     }
@@ -63,8 +74,22 @@ public class UserController {
      * @param user
      * @return
      */
+    @PostMapping(value = "/findLoginLogByUserId")
     public List<LoginLog> findLoginLogByUserId(@RequestBody User user) {
         return userService.findLoginLogByUserId(user);
+    }
+
+
+    /**
+     * 用户分页
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    @GetMapping(value = "/pageUser")
+    public Page<User> pageUser(@RequestParam(value = "pageNum") Integer pageNum,
+                               @RequestParam(value = "pageSize") Integer pageSize) {
+        return userService.pageUser(pageNum, pageSize);
     }
 
 
