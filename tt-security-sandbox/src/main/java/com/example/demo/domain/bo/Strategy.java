@@ -24,14 +24,14 @@ public class Strategy {
     @Column(name = "strategy_createtime")
     private LocalDateTime strategyCreatetime;
 
-    private List<Rule> rules;
+    private List<RuleInstance> ruleInstances;
 
-    public List<Rule> getRules() {
-        return rules;
+    public List<RuleInstance> getRuleInstances() {
+        return ruleInstances;
     }
 
-    public void setRules(List<Rule> rules) {
-        this.rules = rules;
+    public void setRuleInstances(List<RuleInstance> ruleInstances) {
+        this.ruleInstances = ruleInstances;
     }
 
     public Integer getId() {

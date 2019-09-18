@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -29,36 +30,46 @@ public class UserServiceImpl implements UserService {
     @Autowired
     LoginLogDao loginLogDao;
 
+    public User findById(Integer id){
+        User user = userDao.findById(id);
+        user.setPassword(null);
+        return user;
+    }
 
+    public User findByUsername(String username){
+        User user = userDao.findByUserName(username);
+        user.setPassword(null);
+        return user;
+    }
 
-    @Override
-    public User checkUserName(String name) {
-        return userDao.findByUserName(name);
+    private User setPasswordNull(User user) {
+        user.setPassword(null);
+        return user;
     }
 
     @Override
+    public User checkUserName(String name) {
+        return this.findByUsername(name);
+    }
+
+    @Override
+    @Transactional
     public User register(User user) {
         //注册时用户关联的策略为默认策略
-        ArrayList<Strategy> strategies = new ArrayList<>();
+        List<Strategy> strategies = new ArrayList<>();
         strategies.add(strategyDao.findByName(Constant.STRATEGY_DEFAULT_NAME));
         user.setStrategies(strategies);
-        return userDao.save(user);
+        return setPasswordNull(userDao.save(user));
     }
 
     @Override
     public User login(String username,String password) throws Exception {
         User userInfo = userDao.findByUserName(username);
         if (!ObjectUtils.isEmpty(userInfo)) {
-            if (userInfo.getPassword().equals(password)) {
+            if (Objects.equals(userInfo.getPassword(),password)) {
                 //登录成功，新增登录日志
-                LoginLog loginLog = new LoginLog();
-                loginLog.setUserId(userInfo.getId());
-                loginLog.setLoginTime(LocalDateTime.now());
-                loginLogDao.save(loginLog);
-                //把密码和密码记录置空
-                userInfo.setPassword(null);
-                userInfo.setPasswords(null);
-                return userInfo;
+                loginLogDao.save(new LoginLog( userInfo.getId(),LocalDateTime.now()));
+                return setPasswordNull(userInfo);
             }
             throw new Exception(Constant.EXCEPTION_PASSWORD_INCORRECT);
         }
@@ -67,9 +78,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User configureStrategy(Integer userId,Integer strategyId) {
-        User user = userDao.findById(userId);
+        User user = this.findById(userId);
         user.getStrategies().add(strategyDao.findById(strategyId));
-        return userDao.save(user);
+        return setPasswordNull(userDao.save(user));
     }
 
     @Override
@@ -108,7 +119,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> batchConfigureStrategy(Map<Integer, Integer> map) {
-        ArrayList<User> userList = new ArrayList<>();
+        List<User> userList = new ArrayList<>();
         Set<Integer> userIds = map.keySet();
         Iterator<Integer> iterator = userIds.iterator();
         while (iterator.hasNext()) {

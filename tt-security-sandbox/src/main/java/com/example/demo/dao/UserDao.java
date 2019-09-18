@@ -25,7 +25,7 @@ public interface UserDao {
      */
     User findByUserName(String userName);
 
-    List<User> selectAll(User user);
+
 
     /**
      * 新增/修改用户

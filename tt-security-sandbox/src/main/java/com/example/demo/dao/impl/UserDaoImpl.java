@@ -38,19 +38,20 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User findById(Integer id) {
-        UserDo userDo = userMapper.findFirstById(id);
-        List<Password> passwords = passwordDao.findByUserId(id);
-        List<Strategy> strategies = strategyDao.findByUserId(id);
+        return findById(userMapper.findFirstById(id));
+    }
+
+    protected User findById(UserDo userDo) {
+        List<Strategy> strategies = strategyDao.findByUserId(userDo.getId());
         User user = new User();
         user.setStrategies(strategies);
-        user.setPasswords(passwords);
         BeanUtils.copyProperties(userDo, user);
         return user;
     }
 
     @Override
     public User findByUserName(String userName) {
-        return findById(userMapper.findFirstByUserName(userName).getId());
+        return findById(userMapper.findFirstByUserName(userName));
     }
 
     @Override
@@ -58,6 +59,8 @@ public class UserDaoImpl implements UserDao {
         //修改基本信息
         UserDo userDo = new UserDo();
         BeanUtils.copyProperties(user, userDo);
+        //不能修改密码
+        userDo.setPassword(null);
         userMapper.save(userDo);
         BeanUtils.copyProperties(userDo, user);
         //修改/配置用户对应的策略
@@ -65,10 +68,6 @@ public class UserDaoImpl implements UserDao {
             List<Strategy> strategies = user.getStrategies();
             strategies.parallelStream().forEach(strategy -> strategyDao.saveStrategy(strategy));
             strategies.parallelStream().forEach(strategy -> userStrategyMapper.save(new UserStrategyDo(strategy.getId(), user.getId())));
-        }
-        //修改用户对应的密码
-        if (!ObjectUtils.isEmpty(user.getPasswords())) {
-            user.getPasswords().parallelStream().forEach(password -> passwordDao.savePassword(password));
         }
         return findById(user.getId());
     }

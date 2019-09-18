@@ -3,6 +3,7 @@ package com.example.demo.dao.impl;
 import com.example.demo.dao.RuleDao;
 import com.example.demo.dao.StrategyDao;
 import com.example.demo.domain.bo.Rule;
+import com.example.demo.domain.bo.RuleInstance;
 import com.example.demo.domain.bo.Strategy;
 import com.example.demo.domain.dataobject.StrategyDo;
 import com.example.demo.domain.dataobject.StrategyRuleDo;
@@ -40,9 +41,9 @@ public class StrategyDaoImpl implements StrategyDao {
 
     @Override
     public Strategy findById(Integer id) {
-        List<Rule> rules = ruleDao.findByStrategyId(id);
+        List<RuleInstance> ruleInstances = ruleDao.findByStrategyId(id);
         Strategy strategy = new Strategy();
-        strategy.setRules(rules);
+        strategy.setRuleInstances(ruleInstances);
         StrategyDo strategyDo = strategyMapper.findFirstById(id);
         BeanUtils.copyProperties(strategyDo, strategy);
         return strategy;
@@ -75,16 +76,10 @@ public class StrategyDaoImpl implements StrategyDao {
         BeanUtils.copyProperties(strategy, strategyDo);
         StrategyDo save = strategyMapper.save(strategyDo);
         BeanUtils.copyProperties(save, strategy);
-        //传过来的规则
-        List<Rule> rules = strategy.getRules();
+        //传过来的规则实体集合
+        List<RuleInstance> ruleInstances = strategy.getRuleInstances();
         //返回的规则
-        rules.parallelStream().map(rule -> ruleDao.saveRule(rule)).forEach(t -> {
-            StrategyRuleDo strategyRuleDo = new StrategyRuleDo();
-            strategyRuleDo.setRuleId(t.getId());
-            strategyRuleDo.setStrategyId(strategyDo.getId());
-            strategyRuleMapper.save(strategyRuleDo);
-        });
-
+        ruleInstances.parallelStream().forEach(ruleInstance -> ruleDao.saveRule(ruleInstance));
         return strategy;
     }
 

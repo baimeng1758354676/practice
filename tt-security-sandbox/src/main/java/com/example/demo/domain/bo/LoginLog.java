@@ -8,11 +8,10 @@ public class LoginLog implements Serializable {
     public LoginLog() {
     }
 
-    public LoginLog(Integer userId, LocalDateTime loginTime, String loginPlace) {
+    public LoginLog(Integer userId, LocalDateTime loginTime) {
 
         this.userId = userId;
         this.loginTime = loginTime;
-        this.loginPlace = loginPlace;
     }
 
     private Integer id;
