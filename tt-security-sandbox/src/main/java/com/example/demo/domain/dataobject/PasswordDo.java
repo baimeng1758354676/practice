@@ -1,9 +1,6 @@
 package com.example.demo.domain.dataobject;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,10 +17,11 @@ import java.util.Date;
  * ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4
  */
 
-@Entity(name = "user_password")
+@Entity
+@Table(name = "user_password")
 public class PasswordDo implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "user_id")

@@ -21,13 +21,14 @@ import java.util.List;
  * KEY `idx_strategy_id` (`strategy_id`) USING HASH
  * ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8
  */
-@Entity(name = "strategy")
+@Entity
+@Table(name = "strategy")
 public class StrategyDo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "strategy_id")

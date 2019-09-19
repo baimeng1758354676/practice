@@ -1,9 +1,6 @@
 package com.example.demo.domain.dataobject;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -25,11 +22,12 @@ import java.io.Serializable;
  * ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
  */
 
-@Entity(name = "user")
+@Entity
+@Table(name = "user")
 public class UserDo implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "username")

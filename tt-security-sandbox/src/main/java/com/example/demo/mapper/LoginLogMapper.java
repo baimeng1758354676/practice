@@ -12,5 +12,4 @@ import java.util.List;
 @Component
 public interface LoginLogMapper extends JpaRepository<LoginLogDo, Integer> {
     List<LoginLogDo> findAllByUserId(Integer userId);
-
 }

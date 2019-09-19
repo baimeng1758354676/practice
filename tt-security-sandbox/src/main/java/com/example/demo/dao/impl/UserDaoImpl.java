@@ -61,8 +61,6 @@ public class UserDaoImpl implements UserDao {
         //修改基本信息
         UserDo userDo = new UserDo();
         BeanUtils.copyProperties(user, userDo);
-        //不能修改密码
-        userDo.setPassword(null);
         userMapper.save(userDo);
         BeanUtils.copyProperties(userDo, user);
         //修改/配置用户对应的策略

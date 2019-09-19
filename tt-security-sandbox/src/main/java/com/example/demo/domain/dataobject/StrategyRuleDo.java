@@ -1,9 +1,6 @@
 package com.example.demo.domain.dataobject;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -17,11 +14,12 @@ import java.io.Serializable;
  * ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
  */
 
-@Entity(name = "strategy_rule")
+@Entity
+@Table(name = "strategy_rule")
 public class StrategyRuleDo implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "rule_name")
