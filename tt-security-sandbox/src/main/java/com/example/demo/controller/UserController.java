@@ -20,12 +20,12 @@ public class UserController {
     /**
      * 用户名校验
      *
-     * @param name
+     * @param username
      * @return
      */
     @GetMapping(value = "/checkUserName")
-    public User checkUserName(@RequestParam(value = "name") String name) {
-        return userService.checkUserName(name);
+    public User checkUserName(@RequestParam(value = "username") String username) {
+        return userService.checkUserName(username);
     }
 
     /**

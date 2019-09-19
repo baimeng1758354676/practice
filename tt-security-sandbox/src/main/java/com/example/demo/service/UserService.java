@@ -11,10 +11,10 @@ public interface UserService {
     /**
      * 用户名校验
      *
-     * @param name
+     * @param username
      * @return
      */
-    User checkUserName(String name);
+    User checkUserName(String username);
 
     /**
      * 注册

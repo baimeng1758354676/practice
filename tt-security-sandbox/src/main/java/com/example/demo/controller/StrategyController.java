@@ -14,7 +14,6 @@ public class StrategyController {
     @Autowired
     StrategyService strategyService;
 
-
     @GetMapping(value = "/checkStrategyName")
     public Strategy checkStrategyName(@RequestParam(value = "name") String name) {
         return strategyService.checkStrategyName(name);

@@ -42,10 +42,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     protected User findById(UserDo userDo) {
-        List<Strategy> strategies = strategyDao.findByUserId(userDo.getId());
         User user = new User();
-        user.setStrategies(strategies);
-        BeanUtils.copyProperties(userDo, user);
+        if (!ObjectUtils.isEmpty(userDo)) {
+            List<Strategy> strategies = strategyDao.findByUserId(userDo.getId());
+            user.setStrategies(strategies);
+            BeanUtils.copyProperties(userDo, user);
+        }
         return user;
     }
 
@@ -74,7 +76,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public Page<User> pageUser(Integer pageNum, Integer pageSize) {
-        Page<UserDo> userDoPage = userMapper.pageUser(pageNum, pageSize);
+        Page<UserDo> userDoPage = userMapper.findAll(new QPageRequest(pageNum, pageSize));
         List<UserDo> userDos = userDoPage.getContent();
         ArrayList<User> users = new ArrayList<>();
         userDos.parallelStream().forEach(userDo -> {
