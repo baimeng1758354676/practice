@@ -8,6 +8,7 @@ import com.example.demo.util.Constant;
 import com.example.demo.util.RandomUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -40,6 +41,7 @@ public class StrategyServiceImpl implements StrategyService {
     }
 
     @Override
+    @Scheduled(cron = "0,55 * * * * ? ")
     public Strategy saveStrategy(Strategy strategy) {
 //        生成并校验编号唯一性
         boolean flag = true;
