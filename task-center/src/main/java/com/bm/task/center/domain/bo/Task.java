@@ -1,14 +1,10 @@
-package com.bm.task.center.domain.dataobject;
+package com.bm.task.center.domain.bo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "task")
 public class Task implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "time_limited")
@@ -25,6 +21,15 @@ public class Task implements Serializable {
 
     private Integer status;
 
+    public Date getExecuteTime() {
+        return executeTime;
+    }
+
+    public void setExecuteTime(Date executeTime) {
+        this.executeTime = executeTime;
+    }
+
+    private Date executeTime;
 
     public Integer getId() {
         return id;
