@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bf226f5-5018-4033-8139-fe18c3b257a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../task-center/.idea/libraries/Maven__cn_hutool_hutool_all_4_6_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/controller/TaskController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/dao/TaskDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/dao/impl/TaskDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/domain/bo/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/mapper/TaskMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/service/TaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/util/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task-center/.idea/task-center.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/.idea/task-center.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../task-center/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/domain/dataobject/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/domain/dataobject/TaskDo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/util/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/util/Constant.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -233,8 +221,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-12" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-11" />
+    <option name="y" value="1" />
     <option name="width" value="1938" />
     <option name="height" value="1029" />
   </component>
@@ -577,7 +566,7 @@
     <option name="totallyTimeSpent" value="111572000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1292" height="686" extended-state="0" />
+    <frame x="-7" y="1" width="1292" height="686" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.28519857" visible="true" weight="0.2828201" />

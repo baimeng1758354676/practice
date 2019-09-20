@@ -9,7 +9,7 @@ public class Constant {
     /**
      * 未放入内存状态码
      */
-    public static final Integer TASK_STATUS_NOT_EXECUTED = 0;
+    public static final Integer TASK_STATUS_NOT_PUT = 0;
 
     /**
      * 已放入内存
