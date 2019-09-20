@@ -31,4 +31,6 @@ public class Constant {
     public static final String METHOD_POST = "POST";
 
     public static final int STATUS_SUCCESS = 200;
+
+    public static final int REQUEST_TIME = 3;
 }

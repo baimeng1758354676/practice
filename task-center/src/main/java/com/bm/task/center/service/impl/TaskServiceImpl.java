@@ -81,7 +81,7 @@ public class TaskServiceImpl implements TaskService {
                 return true;
             }
             count++;
-            if (count >= 3) {
+            if (count >= Constant.REQUEST_TIME) {
                 break;
             }
         }

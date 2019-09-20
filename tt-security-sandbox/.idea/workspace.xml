@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1bf226f5-5018-4033-8139-fe18c3b257a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../task-center/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/util/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task-center/src/main/java/com/bm/task/center/util/Constant.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
