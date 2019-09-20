@@ -1,18 +1,15 @@
 package com.bm.task.center.domain.bo;
 
-import javax.persistence.Column;
 import java.io.Serializable;
 import java.util.Date;
 
 public class Task implements Serializable {
     private Integer id;
 
-    @Column(name = "time_limited")
     private Integer timeLimited;
 
     private String method;
 
-    @Column(name = "create_time")
     private Date createTime;
 
     private String data;
@@ -21,6 +18,8 @@ public class Task implements Serializable {
 
     private Integer status;
 
+    private Date executeTime;
+
     public Date getExecuteTime() {
         return executeTime;
     }
@@ -28,8 +27,6 @@ public class Task implements Serializable {
     public void setExecuteTime(Date executeTime) {
         this.executeTime = executeTime;
     }
-
-    private Date executeTime;
 
     public Integer getId() {
         return id;

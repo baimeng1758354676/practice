@@ -9,25 +9,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl implements TaskService {
 
-    private static List<Task> taskQueue = new ArrayList<>();
+    private static Queue<Task> taskQueue = new PriorityBlockingQueue<>();
+
+    private ReentrantLock lock = new ReentrantLock();
 
     @Autowired
     TaskDao taskDao;
 
     @Override
     public Task save(Task task) {
+        taskQueue.add(task);
         return taskDao.save(task);
     }
 
     @Override
-    @Scheduled(cron = "0 0/5 * * * ? *")
+    @Scheduled(cron = "0/5 * * * * ?")
     public void findTaskQueue() {
         //查询近期要处理的任务集合
         List<Task> tasks = taskDao.findTaskQueue(new Date(System.currentTimeMillis() + Constant.TASK_TIME_LIMITED_IN_MILLIS), Constant.TASK_STATUS_NOT_PUT);
@@ -44,9 +50,15 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    @Scheduled(cron = "0/5 * * * * ? *")
+    @Scheduled(cron = "0/5 * * * * ?")
     public void executeTask() {
-        taskQueue.parallelStream().forEach(task -> {
+        List<Task> collect = taskQueue.parallelStream()
+                .filter(task -> new Date().after(task.getExecuteTime()))
+                .collect(Collectors.toList());
+        lock.lock();
+        taskQueue.removeAll(collect);
+        lock.unlock();
+        collect.parallelStream().forEach(task -> {
             Date now = new Date();
             if (now.after(task.getExecuteTime())) {
                 HttpRequest request = null;
@@ -78,6 +90,7 @@ public class TaskServiceImpl implements TaskService {
         int count = 0;
         while (flag) {
             if (request.execute().getStatus() == Constant.STATUS_SUCCESS) {
+                System.out.println(111);
                 return true;
             }
             count++;
