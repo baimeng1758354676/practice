@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Queue;
@@ -19,7 +20,14 @@ import java.util.stream.Collectors;
 @Service
 public class TaskServiceImpl implements TaskService {
 
-    private static Queue<Task> taskQueue = new PriorityBlockingQueue<>();
+    private static Queue<Task> taskQueue = new PriorityBlockingQueue<>(Constant.QUEUE_INITIAL_CAPACITY, new Comparator<Task>() {
+        @Override
+        public int compare(Task o1, Task o2) {
+            return (int) (o2.getExecuteTime().getTime() - o1.getExecuteTime().getTime());
+        }
+    });
+
+
 
     private ReentrantLock lock = new ReentrantLock();
 
@@ -28,6 +36,11 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task save(Task task) {
+
+        //对新增的任务进行判断，如果在未来一段时间内将被执行，则放入有序任务队列
+//        if (task.getExecuteTime().before()) {
+//
+//        }
         taskQueue.add(task);
         return taskDao.save(task);
     }

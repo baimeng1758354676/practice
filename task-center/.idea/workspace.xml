@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9edd8d0-a669-4f7a-9c06-d9b2ef4c0bdc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bm/task/center/domain/bo/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bm/task/center/domain/bo/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bm/task/center/util/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bm/task/center/util/Constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tt-security-sandbox/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tt-security-sandbox/.idea/workspace.xml" afterDir="false" />
@@ -44,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
+            <state relative-caret-position="437">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,11 +57,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/concurrent/PriorityBlockingQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="219" column="38" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
+            <state relative-caret-position="-931">
+              <caret line="176" lean-forward="true" selection-start-line="176" selection-end-line="176" />
               <folding>
+                <element signature="e#0#35670#0" expanded="true" />
                 <element signature="e#6196#6197#0" expanded="true" />
                 <element signature="e#6248#6249#0" expanded="true" />
+                <element signature="e#16583#16584#0" expanded="true" />
+                <element signature="e#16614#16615#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/Comparator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2395">
-              <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
+            <state relative-caret-position="189">
+              <caret line="139" column="49" lean-forward="true" selection-start-line="139" selection-start-column="49" selection-end-line="139" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -94,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/concurrent/LinkedBlockingQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="278" column="20" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="20" />
+            <state relative-caret-position="161">
+              <caret line="259" column="30" selection-start-line="259" selection-start-column="11" selection-end-line="259" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -103,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/domain/dataobject/TaskDo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="36" column="29" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="29" />
+            <state relative-caret-position="570">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#567#568#0" expanded="true" />
@@ -160,11 +161,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/util/Constant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-269">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="377">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -184,6 +185,8 @@
       <find>remove</find>
       <find>LinkedBlockingDeque</find>
       <find>PriorityBlockingQueue</find>
+      <find>LinkedBlockingQueue</find>
+      <find>add</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,8 +207,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/bm/task/center/dao/TaskDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bm/task/center/dao/impl/TaskDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bm/task/center/domain/bo/Task.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bm/task/center/util/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -242,9 +245,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
-    <option name="y" value="1" />
+    <option name="y" value="49" />
     <option name="width" value="1938" />
     <option name="height" value="1029" />
   </component>
@@ -512,7 +515,7 @@
       <option name="presentableId" value="Default" />
       <updated>1568880007101</updated>
       <workItem from="1568880008945" duration="7784000" />
-      <workItem from="1568888984418" duration="14709000" />
+      <workItem from="1568888984418" duration="19770000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1568881509863</created>
@@ -542,17 +545,24 @@
       <option name="project" value="LOCAL" />
       <updated>1568946797541</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="333">
+      <created>1568962513050</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1568962513050</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22493000" />
+    <option name="totallyTimeSpent" value="27554000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="33" width="1292" height="686" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2934519" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26337114" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -604,18 +614,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="333" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java</url>
-          <line>39</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
@@ -753,20 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/domain/dataobject/TaskDo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#653#654#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/mapper/TaskMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
@@ -788,17 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/cn/hutool/hutool-all/4.6.6/hutool-all-4.6.6.jar!/cn/hutool/http/HttpRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
-          <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
-          <folding>
-            <element signature="e#3664#3665#0" expanded="true" />
-            <element signature="e#3728#3729#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/concurrent/LinkedBlockingDeque.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -810,45 +783,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/cn/hutool/hutool-all/4.6.6/hutool-all-4.6.6.jar!/cn/hutool/http/HttpRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+          <folding>
+            <element signature="e#3664#3665#0" expanded="true" />
+            <element signature="e#3728#3729#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/concurrent/LinkedBlockingQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="278" column="20" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="20" />
+        <state relative-caret-position="161">
+          <caret line="259" column="30" selection-start-line="259" selection-start-column="11" selection-end-line="259" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/util/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/domain/dataobject/TaskDo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#699#700#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/Comparator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2395">
-          <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
+        <state relative-caret-position="189">
+          <caret line="139" column="49" lean-forward="true" selection-start-line="139" selection-start-column="49" selection-end-line="139" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/concurrent/PriorityBlockingQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="219" column="38" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
+        <state relative-caret-position="-931">
+          <caret line="176" lean-forward="true" selection-start-line="176" selection-end-line="176" />
           <folding>
+            <element signature="e#0#35670#0" expanded="true" />
             <element signature="e#6196#6197#0" expanded="true" />
             <element signature="e#6248#6249#0" expanded="true" />
+            <element signature="e#16583#16584#0" expanded="true" />
+            <element signature="e#16614#16615#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/service/impl/TaskServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
+        <state relative-caret-position="437">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bm/task/center/util/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-269">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>

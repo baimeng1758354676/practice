@@ -34,4 +34,11 @@ public class Constant {
     public static final int STATUS_SUCCESS = 200;
 
     public static final int REQUEST_TIME = 3;
+
+    /**
+     * 任务队列初始化容量
+     */
+    public static final int QUEUE_INITIAL_CAPACITY = 10;
+
+
 }
